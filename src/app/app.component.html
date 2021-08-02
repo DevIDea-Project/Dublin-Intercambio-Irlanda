@@ -1,0 +1,688 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Benne&family=Domine&family=Fjalla+One&family=Lobster&family=Righteous&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Benne&family=Domine&family=Fjalla+One&family=Fredoka+One&family=Lobster&family=Righteous&display=swap');
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+    font-family: 'Domine', serif;
+    font-weight: bold;
+  }
+
+  * {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  p {
+    margin: 0;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Benne', serif;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #12d722;
+    color: white;
+    font-weight: 600;
+  }
+
+  #Npm {
+    padding: 80px;
+  }
+
+  #tit {
+    padding: 20px;
+    position: relative;
+    left: -100px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 7fr 7fr 0fr;
+    padding: auto;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  #imgQR {
+    height: 250px;
+    width: 250px;
+  }
+
+  #txt {
+    padding: 20px;
+    /* color: #12d722; */
+    color: #000000;
+    font-weight: bold;
+    font-family: 'Benne', serif;
+    font-size: 17px;
+  }
+
+  #title {
+    color: #000000;
+    font-weight: bold;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    /* fill: #888; */
+    fill:#12d722;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #12d722;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+    font-size: 40px;
+    padding: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+    color: #ffffff;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .titulo{
+    width: 1000px;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  #imgDublin {
+    border-radius: 10%;
+    width: 500px;
+    height: 300px;
+  }
+
+  #imgBr {
+    border-radius: 10%;
+    width: 400px;
+    height: 300px;
+  }
+
+  #txtBR {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  #Form {
+    width: 700px;
+    position: relative;
+    left: -85px;
+  }
+
+  #btnSend {
+    position: relative;
+    top: 10px;
+  }
+
+  #agradecimento {
+    width: 100vw;
+    height: 65vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+  }
+
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  
+</div>
+
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="card highlight-card card-small">
+
+    <svg id="rocket" alt="Rocket Ship" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
+      <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
+        <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#ffa500"/>
+        <g id="Group_47" data-name="Group 47" transform="translate(165.185 720.185)">
+          <path id="Path_33" data-name="Path 33" d="M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z" transform="translate(0.371 3.363)" fill="#ffffff"/>
+          <path id="Path_34" data-name="Path 34" d="M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z" transform="translate(0 0.005)" fill="#ffffff"/>
+          
+        </g>
+      </g>
+    </svg>
+
+    <span>Embarque Nesta Aventura - Dublin</span>
+  </div>
+
+  <!-- Texto Entrada e Explicação Intercambio -->
+  <div class="container">
+    <div class="col-lg-12">
+      <h1 class="titulo"> Tragetoria da minha vida </h1>
+      <p id="txt">Bem, como todas já sabem estou cada vez mais próximo de realizar um sonho, 
+        que seria morar fora do Brasil. Essa aventura já tem data, mais ou menos! (10/10/2022) 
+        Então resolvi encarar este desafio e dividir com vocês. Parei e pensei... Imagina que
+        eu fosse casar e poderia pedir uma contribuição/ajuda/presente, para familiares e amigos
+        intimos. Porém no caso seria uma contribuição para meu Intercambio, não me vejo com o dom
+        do matrimonio, sim em ganhar esse mundão e realizar meu sonho e poder ajudar minha familia
+        e mudar totalmente de vida. Sabe o que me deixa mais feliz? Saber que no decorrer da vida 
+        estive ao lado de pessoas maravilhosas e que sempre estiveram ao meu lado. Eu passei por 
+        muitas dificuldades, tanto financeiras, quanto existencial. Por muito tempo não sabia o 
+        que queria para minha vida ou como mudar a minha atual condição social e econômica. Porém
+        hoje olhando para todo caminho que percorrer, valeu muito a pena e sou muito grato por tudo.
+        Quero agradecer a todas as pessoas que puderem contribuir com essa "vaquinha" e me ajudar neste
+        proposito!
+      </p>
+    </div>
+  </div>
+  
+  <!-- Texto Entrada e Explicação Intercambio -->
+  <div class="container">
+    <div class="col-lg-12">
+      <h1 class="titulo"> Meu Intercambio Dublin - A Viagem </h1>
+      <p id="txt">Bem, como todas já sabem estou cada vez mais próximo de realizar um sonho, 
+        que seria morar fora do Brasil. Essa aventura já tem data, mais ou menos! (10/10/2022) 
+        Então resolvi encarar este desafio e dividir com vocês. Parei e pensei... Imagina que
+        eu fosse casar e poderia pedir uma contribuição/ajuda/presente, para familiares e amigos
+        intimos. Porém no caso seria uma contribuição para meu Intercambio, não me vejo com o dom
+        do matrimonio, sim em ganhar esse mundão e realizar meu sonho e poder ajudar minha familia
+        e mudar totalmente de vida. Sabe o que me deixa mais feliz? Saber que no decorrer da vida 
+        estive ao lado de pessoas maravilhosas e que sempre estiveram ao meu lado. Eu passei por 
+        muitas dificuldades, tanto financeiras, quanto existencial. Por muito tempo não sabia o 
+        que queria para minha vida ou como mudar a minha atual condição social e econômica. Porém
+        hoje olhando para todo caminho que percorrer, valeu muito a pena e sou muito grato por tudo.
+        Quero agradecer a todas as pessoas que puderem contribuir com essa "vaquinha" e me ajudar neste
+        proposito!
+      </p>
+    </div>
+  </div>
+
+  <!--Titulo Imagens da Irlanda-->
+  <div class="container">
+    <div class="col-lg-12">
+      <h1 class="titulo">Um pouco sobre a Ilha Esmeraldina</h1>
+      <p id="txt">
+        A República da Irlanda ocupa a maior parte da ilha da Irlanda, perto da costa da Inglaterra 
+        e do País de Gales. Sua capital, Dublin, é berço de escritores como Oscar Wilde e local de 
+        origem da cerveja Guinness. O Livro de Kells, do século 9, e outros manuscritos ilustrados 
+        estão em exposição na biblioteca da Universidade de Trinity, em Dublin. Apelidado de "Ilha Esmeralda" 
+        por sua paisagem exuberante, o país está repleto de castelos, como a construção medieval de Cahir.
+        Na Irlanda seu idioma oficial é o inglês. Lá também tem a presença de grandes empresas de Tecnologia, 
+        na qual é a área onde atuo. Empresas como: Google, Accenture, Facebook AirBnB e outras. 
+        É uma ilha charmosa e bastante encantadora.
+      </p>
+    </div>
+  </div>
+  
+
+  <h1 class="titulo">Alguns Pontos Turísticos da Irlanda</h1>
+  <!-- Imagens Irlanda -->
+  <div class="container">
+    <div class="col-lg-6">
+      <div id="Npm" align="center" padding="20px">
+        <h2 title="Comando Para Iniciar Um Projeto">The Temple Bar - Dublin</h2>
+        <img id="imgDublin" src="../assets/diogo-palhais-tnzzr8HpLhs-unsplash.jpg">
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div id="Npm" align="center" padding="20px">
+        <h2 title="Comando Para Iniciar Um Projeto">The Dublin City Center</h2>
+        <img id="imgDublin" src="../assets/guillaume-henrotte-zBDWByAzAM0-unsplash.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col-lg-6">
+      <div id="Npm" align="center" padding="20px">
+        <h2 title="Comando Para Iniciar Um Projeto">The Cork City Center</h2>
+        <img id="imgDublin" src="../assets/jason-murphy-rTG1TR6Ygb0-unsplash.jpg">
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div id="Npm" align="center" padding="20px">
+        <h2 title="Comando Para Iniciar Um Projeto">Connemara - Abadia de Kylemore</h2>
+        <img id="imgDublin" src="../assets/ruben-xove-EdY6yWGleaE-unsplash.jpg">
+      </div>
+    </div>
+  </div>
+
+  <hr><hr/>
+  <h1>Redes Sociais</h1>
+  <p> Minhas Redes Sociais Para Sanar Algumas Duvidas Existentes: </p>
+  <p> Me sigam nas redes sociais e veja o passo a passo de tudo nesta jornada.</p>
+  <hr><hr/>
+  <div class="card-container">
+    <a class="card" target="_blank" rel="noopener" href="https://www.instagram.com/viniciustica09/">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+
+      <span>Instagram</span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+    <a class="card" target="_blank" rel="noopener" href="https://api.whatsapp.com/send?phone=5581995565126&text=Go%20Dulin">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+
+      <span>Whatsapp</span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+    <a class="card" target="_blank" rel="noopener" href="https://www.linkedin.com/in/bruno-vinicius-459a34127/">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+
+      <span>Linkdin</span>
+
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </a>
+
+
+  </div>
+
+  <hr><hr/>
+  
+  <!-- Next Steps -->
+  <h2>QR-Code Para Doação</h2>
+  <p>É bem simles, entre no seu aplicativo de banco e coloque pra ler por QR-code. <br>
+     Aponte Sua Câmera Para o QR-Code e pronto. Doação feita com sucesso!
+  </p>
+
+  <hr><hr/>
+
+  <img id="imgQR" src="../assets/qrcode-pix.png">
+
+  <hr><hr/>
+
+  <h1>Música e Tecnologia - O que Representam?</h1>
+
+  <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" opacity="2px" fill="#b0e0e6"/>
+  </svg>
+
+  <!-- Imagens Irlanda -->
+  <div class="container">
+    <div class="col-lg-6">
+      <div id="Npm" align="center" padding="20px">
+        <h2 title="Comando Para Iniciar Um Projeto">Bruno Musico</h2>
+        <img id="imgBr" src="../assets/WhatsApp Image 2021-06-20 at 11.43.13 AM (1).jpeg">
+        <p id="txtBR"> 
+          Quem me conhece sabe da minha enorme paixão pela música. Desde muito pequeno, precisamente aos 10 anos,
+          meus pais me deram meu primeiro cavaquinho. Lembro do valor e da marca. (hehehehhhehehe) Kashima e o valor
+          na epoca foi de R$80,00. Ali fui um dia muito feliz para mim, apesar de não saber colocar uma nota, mas minha
+          paixão pela música era maior que o obstaculo! Lembro-me de ir para algumas rodas de samba e ser criticado por
+          uma pessoa. E ela me perguntou: "Você conhece o braço do seu instrumento?" E ele falava de uma forma, como eu 
+          nunca chegasse ao "nível" dele, musicalmente falando. E ai ele duvidou da pessoa errada, se fosse para eleger
+          meu maior dom, seria: Força de vontade, foco e determinação. O tempo passou e essa pessoa vinha me pedir dicas,
+          como metodo de estudo, leitura e outras coisas. Não falo com orgulho que o tempo passou e isso aconteceu, mas é
+          apenas um desabafo. Minha historia é igual a de muitos brasileiros, luta e superação. Foque e persevere.
+
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div id="Npm" align="center" padding="20px">
+        <h2 title="Comando Para Iniciar Um Projeto">Bruno Dev</h2>
+        <img id="imgBr" src="../assets/WhatsApp Image 2021-06-20 at 11.43.13 AM.jpeg">
+        <p id="txtBR"> 
+          Minha entrada na area foi meio que um acidente. Na verdade queria muito morar no canada e na época, via uma chance
+          pelo motivo da area de Tecnologia ser algo promissor em qualquer lugar do mundo e conseguir cidadania. Então comecei
+          o curso de Analise e Desenvolvimento de Sistemas, mas no inicio tive bastante dificuldade. (Pelo extra campo kkkkk)
+          Quando você se decide a entrar numa area de Engenhearia de Software, deve saber que o resto da sua vida vai ser: Estudar.
+          E se algo ou alguém rema contra isso, saiba que você precisa se desprender desta PEDRA no caminho, seja decidido e 
+          perseverante. Ao passar dos anos eu ia batendo na trave, até eu entender que: Precisava focar em uma tecnologia e ser 
+          o melhor nela. E foi assim que conseguir entrar no mercado. Não fique com medo, no começo você será taxado como louco, 
+          depois como teimoso e no final como gênio. E serio, sou apenas teimoso! Hoje estou prestes a realizar o maior sonho que tenho
+          morar fora... indo legalmente, com perspectiva de crescimento na minha área. Olhando para trás estou muito contente.
+
+
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <hr><hr/>
+
+  <h1>Agredecimentos: </h1>
+
+  <!-- <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" opacity="2px" fill="#b0e0e6"/>
+  </svg> -->
+
+  <!-- Agredecimento -->
+  <div id="agradecimento" class="container">
+    <div class="col-lg-12">
+      <div id="Npm" align="center" padding="20px">
+        <h2 title="Comando Para Iniciar Um Projeto">Bruno Musico</h2>
+        <img id="imgBr" src="../assets/WhatsApp Image 2021-06-20 at 11.43.13 AM (1).jpeg">
+        <p id="txtBR"> 
+          Quem me conhece sabe da minha enorme paixão pela música. Desde muito pequeno, precisamente aos 10 anos,
+          meus pais me deram meu primeiro cavaquinho. Lembro do valor e da marca. (hehehehhhehehe) Kashima e o valor
+          na epoca foi de R$80,00. Ali fui um dia muito feliz para mim, apesar de não saber colocar uma nota, mas minha
+          paixão pela música era maior que o obstaculo! Lembro-me de ir para algumas rodas de samba e ser criticado por
+          uma pessoa. E ela me perguntou: "Você conhece o braço do seu instrumento?" E ele falava de uma forma, como eu 
+          nunca chegasse ao "nível" dele, musicalmente falando. E ai ele duvidou da pessoa errada, se fosse para eleger
+          meu maior dom, seria: Força de vontade, foco e determinação. O tempo passou e essa pessoa vinha me pedir dicas,
+          como metodo de estudo, leitura e outras coisas. Não falo com orgulho que o tempo passou e isso aconteceu, mas é
+          apenas um desabafo. Minha historia é igual a de muitos brasileiros, luta e superação. Foque e persevere.
+
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
+
+<router-outlet></router-outlet>
